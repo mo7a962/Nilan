@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>السحوبات</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(#0a0a0a, #1a1a1a);
+      color: white;
+      padding-bottom: 100px;
+    }
+
+    .hamburger {
+      display: block;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .hamburger div {
+      width: 30px;
+      height: 4px;
+      background-color: #00ffff;
+      margin: 6px 0;
+      border-radius: 2px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      width: 180px;
+      background-color: #0f0f0f;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      display: none;
+      z-index: 1000;
+    }
+
+    .dropdown-menu::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 20px;
+      border-width: 0 10px 10px 10px;
+      border-style: solid;
+      border-color: transparent transparent #0f0f0f transparent;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: #00ffff;
+      text-decoration: none;
+      margin-bottom: 12px;
+      font-size: 15px;
+      border-radius: 8px;
+      padding: 6px 8px;
+      transition: background 0.3s;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #00ffff22;
+    }
+
+    .dropdown-menu.active {
+      display: block;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 100px auto 30px;
+      background: #111;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    th {
+      color: #00ffff;
+    }
+
+    td {
+      color: #eee;
+    }
+
+    .no-data {
+      text-align: center;
+      color: #888;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- زر الهامبرغر -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <!-- القائمة -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="mining.html">الرئيسية</a>
+    <a href="withdraw.html">السحب</a>
+    <a href="archive.html">السحوبات</a>
+    <a href="task.html">مهـمات</a>
+    <a href="membership.html">العضويـة</a>
+    <a href="#">حسابك</a>
+  </div>
+
+  <div class="container">
+    <h2>سجل السحوبات</h2>
+    <div id="withdrawHistory">
+      <!-- سيتم تعبئته بجافاسكربت -->
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("dropdownMenu").classList.toggle("active");
+    }
+
+    // بيانات السحوبات (فارغة حالياً)
+    const withdrawals = []; // مثال: [{amount: "50M", status: "تم التسليم"}];
+
+    const historyDiv = document.getElementById("withdrawHistory");
+
+    if (withdrawals.length === 0) {
+      historyDiv.innerHTML = `<div class="no-data">لا توجد سحوبات حتى الآن</div>`;
+    } else {
+      let table = `<table><thead><tr><th>المبلغ</th><th>الحالة</th></tr></thead><tbody>`;
+      withdrawals.forEach(w => {
+        table += `<tr><td>${w.amount}</td><td>${w.status}</td></tr>`;
+      });
+      table += `</tbody></table>`;
+      historyDiv.innerHTML = table;
+    }
+  </script>
+
+</body>
+</html>

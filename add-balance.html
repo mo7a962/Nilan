@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إضافة رصيد</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #00f7ff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>عايز تزود رصيدك؟ تعالى هنا!</h2>
+  <input type="number" id="amount" placeholder="اكتب المبلغ">
+  <br>
+  <button onclick="addBalance()">زود يا معلم</button>
+
+  <script>
+    function addBalance() {
+      let current = parseInt(localStorage.getItem("balance") || "0");
+      let amount = parseInt(document.getElementById("amount").value);
+      if (!isNaN(amount) && amount > 0) {
+        localStorage.setItem("balance", current + amount);
+        alert(`تم إضافة ${amount.toLocaleString()} كردت. رصيدك الجديد: ${(current + amount).toLocaleString()}`);
+      } else {
+        alert("اكتب مبلغ صح يا عم!");
+      }
+    }
+  </script>
+
+</body>
+</html>

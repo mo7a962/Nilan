@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>العضويات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+      color: #ccf2ff;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #111;
+      box-shadow: 0 2px 5px #00ffff20;
+      position: relative;
+      z-index: 1001;
+    }
+
+    header button {
+      font-size: 26px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #00ffff;
+    }
+
+    #menu {
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background-color: #111;
+      border-radius: 10px;
+      width: 180px;
+      box-shadow: 0 0 10px #00ffff40;
+      display: none;
+      flex-direction: column;
+      z-index: 1002;
+    }
+
+    #menu a {
+      color: #ccf2ff;
+      padding: 10px;
+      text-decoration: none;
+      border-bottom: 1px solid #00ffff30;
+      transition: background 0.3s;
+    }
+
+    #menu a:hover {
+      background-color: #00ffff10;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffff;
+      margin: 30px 0 10px;
+    }
+
+    .memberships {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: #111;
+      border-radius: 20px;
+      box-shadow: 0 0 15px #00ffff20;
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card h2 {
+      color: #00ffff;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 15px;
+    }
+
+    .card ul li {
+      margin-bottom: 8px;
+    }
+
+    .price {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card button {
+      background: linear-gradient(to right, #00ffff, #00cccc);
+      border: none;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .card button:hover {
+      background: linear-gradient(to right, #00cccc, #00ffff);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>العضويات</h2>
+    <button onclick="toggleMenu()">☰</button>
+  </header>
+
+  <div id="menu">
+    <a href="mining.html">الرئيسية</a>
+    <a href="withdraw.html">السحب</a>
+    <a herf="archive.html">السحوبات</a>
+    <a href="membership.html">العضويات</a>
+    <a herf="#">حسابك</a>
+    <a href="Login.html">تسجيل خروج</a>
+  </div>
+
+  <h1>العضويات</h1>
+
+  <div class="memberships">
+    <div class="card">
+      <h2>Basic ⭐</h2>
+      <ul>
+        <li>تعدين 1.5×</li>
+        <li>دعم فني أسرع</li>
+        <li>سحب أسرع</li>
+      </ul>
+      <div class="price">75m</div>
+      <button onclick="location.href='https://discord.gg/KdgRnMng'">شراء الآن</button>
+    </div>
+
+    <div class="card">
+      <h2>VIP 👑</h2>
+      <ul>
+        <li>تعدين 2×</li>
+        <li>دعم فني خارق</li>
+        <li>تسليم خلال ساعة</li>
+        <li>مهام كل 3 أيام</li>
+      </ul>
+      <div class="price">100m</div>
+      <button onclick="location.href='https://discord.gg/KdgRnMng'">شراء الآن</button>
+    </div>
+
+    <div class="card">
+      <h2>Fageer 🔥</h2>
+      <ul>
+        <li>تعدين 5×</li>
+        <li>دعم فني خاص فيك</li>
+        <li>تسليم بنفس الوقت</li>
+        <li>مهام يومية</li>
+      </ul>
+      <div class="price">350m</div>
+      <button onclick="location.href='https://discord.gg/KdgRnMng'">شراء الآن</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display = (menu.style.display === 'flex') ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>
